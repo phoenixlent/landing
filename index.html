@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PROTOPORIA S.A. | Research, Development & Patents</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #0d2f6e;
+      --accent:  #1a6ef5;
+      --light:   #e8f0fe;
+      --gray:    #f5f7fb;
+      --text:    #1c1c2e;
+      --muted:   #6b7280;
+      --white:   #ffffff;
+      --radius:  12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6%; height: 70px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+
+    .nav-logo {
+      font-size: 1.3rem; font-weight: 800; letter-spacing: 1px;
+      color: var(--blue); text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--text);
+      font-size: 0.95rem; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      background: var(--accent); color: var(--white) !important;
+      padding: .5rem 1.3rem; border-radius: 50px;
+      font-weight: 600 !important;
+      transition: background .2s, transform .15s !important;
+    }
+    .nav-cta:hover { background: var(--blue) !important; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      padding: 6rem 6% 4rem;
+      background: linear-gradient(135deg, #0d2f6e 0%, #1a6ef5 55%, #5ba4f5 100%);
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-content { position: relative; max-width: 780px; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff; padding: .4rem 1.2rem;
+      border-radius: 50px; font-size: .85rem; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900; color: #fff;
+      line-height: 1.15; margin-bottom: 1.4rem;
+    }
+
+    .hero h1 em { font-style: normal; color: #a8d0ff; }
+
+    .hero p {
+      font-size: 1.2rem; color: rgba(255,255,255,0.85);
+      max-width: 580px; margin: 0 auto 2.5rem;
+    }
+
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: #fff; color: var(--accent);
+      padding: .9rem 2.2rem; border-radius: 50px;
+      font-weight: 700; font-size: 1rem;
+      text-decoration: none; transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
+
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,0.6); color: #fff;
+      padding: .9rem 2.2rem; border-radius: 50px;
+      font-weight: 600; font-size: 1rem;
+      text-decoration: none; transition: background .2s, border-color .2s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: #fff; }
+
+    /* ── STATS ── */
+    .stats {
+      background: var(--blue);
+      padding: 3rem 6%;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+      gap: 2rem; text-align: center;
+    }
+
+    .stat-num {
+      font-size: 2.6rem; font-weight: 900; color: #fff;
+      line-height: 1;
+    }
+    .stat-label { color: rgba(255,255,255,0.65); font-size: .9rem; margin-top: .4rem; }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 5rem 6%; }
+
+    .section-tag {
+      display: inline-block; color: var(--accent);
+      font-weight: 700; font-size: .85rem;
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: .7rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 800; line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--muted); font-size: 1.05rem;
+      max-width: 600px;
+    }
+
+    /* ── ACTIVITIES ── */
+    .services { background: var(--gray); }
+
+    .services-header { text-align: center; margin-bottom: 3.5rem; }
+    .services-header .section-sub { margin: 0 auto; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    @media (max-width: 900px) {
+      .cards { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .cards { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: transform .25s, box-shadow .25s;
+      border-top: 4px solid var(--accent);
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+
+    .card-icon {
+      width: 56px; height: 56px;
+      background: var(--light);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: .6rem; }
+    .card p  { color: var(--muted); font-size: .95rem; }
+
+    /* ── ABOUT ── */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .about { grid-template-columns: 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+    }
+
+    .about-visual {
+      background: linear-gradient(135deg, var(--blue), var(--accent));
+      border-radius: 20px;
+      min-height: 380px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 2.5rem;
+      color: #fff; text-align: center;
+    }
+
+    .about-visual-inner h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+    .about-visual-inner p  { font-size: .95rem; opacity: .85; }
+
+    .about-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--light); border-radius: 50px;
+      padding: .4rem 1rem; font-size: .85rem;
+      font-weight: 600; color: var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .check-list { list-style: none; margin-top: 1.5rem; }
+    .check-list li {
+      display: flex; gap: .75rem;
+      align-items: flex-start; margin-bottom: .9rem;
+      font-size: 1rem; color: var(--text);
+    }
+    .check-list li::before {
+      content: '✓';
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      background: var(--light);
+      color: var(--accent);
+      border-radius: 50%; font-size: .75rem; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: .15rem;
+    }
+
+    /* ── PROCESS ── */
+    .process { background: var(--gray); }
+    .process-header { text-align: center; margin-bottom: 3.5rem; }
+    .process-header .section-sub { margin: 0 auto; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .step {
+      text-align: center; padding: 2rem 1.5rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+
+    .step-num {
+      width: 50px; height: 50px;
+      background: var(--accent);
+      color: #fff; border-radius: 50%;
+      font-size: 1.3rem; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.2rem;
+    }
+
+    .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .5rem; }
+    .step p  { color: var(--muted); font-size: .9rem; }
+
+    /* ── PATENTS HIGHLIGHT ── */
+    .patents-highlight {
+      background: linear-gradient(135deg, var(--blue) 0%, #1a6ef5 100%);
+      color: #fff; text-align: center;
+      padding: 5rem 6%;
+    }
+
+    .patents-highlight .section-title { color: #fff; margin-bottom: 1rem; }
+    .patents-highlight .section-sub   { color: rgba(255,255,255,.75); margin: 0 auto 2.5rem; }
+
+    .patent-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+
+    .patent-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      text-align: left;
+    }
+
+    .patent-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: .5rem; }
+    .patent-card p  { font-size: .9rem; opacity: .8; }
+
+    /* ── CTA ── */
+    .cta {
+      text-align: center; background: var(--white);
+      padding: 5rem 6%;
+    }
+
+    .cta .section-title { max-width: 600px; margin: .5rem auto 1rem; }
+    .cta .section-sub   { margin: 0 auto 2.5rem; }
+
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn-dark {
+      background: var(--blue); color: #fff;
+      padding: .95rem 2.4rem; border-radius: 50px;
+      font-weight: 700; font-size: 1rem;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+      box-shadow: 0 4px 20px rgba(13,47,110,.3);
+    }
+    .btn-dark:hover { background: var(--accent); transform: translateY(-2px); }
+
+    .btn-secondary {
+      border: 2px solid var(--blue); color: var(--blue);
+      padding: .9rem 2.2rem; border-radius: 50px;
+      font-weight: 600; font-size: 1rem;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .btn-secondary:hover { background: var(--light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a1e4a;
+      color: rgba(255,255,255,0.65);
+      padding: 2.5rem 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      footer { flex-direction: column; text-align: center; }
+      .stats { grid-template-columns: 1fr 1fr; }
+    }
+
+    .footer-brand .nav-logo { color: #fff; display: block; margin-bottom: .3rem; font-size: 1.2rem; }
+    .footer-brand p { font-size: .85rem; }
+
+    .footer-bottom {
+      background: #07142e;
+      text-align: center;
+      padding: 1.2rem 6%;
+      color: rgba(255,255,255,.4);
+      font-size: .82rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">PROTO<span>PORIA</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Activities</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Our Process</a></li>
+    <li><a href="#patents">Patents</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">✦ Founded 2026 &nbsp;·&nbsp; Athens, Greece</div>
+    <h1>We Research, We Invent,<br><em>We Patent</em></h1>
+    <p>
+      We conduct our own research, develop original technologies, and secure
+      our inventions with patents of global reach — entirely for our own portfolio.
+    </p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-primary">Our Activities</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div>
+    <div class="stat-num">2026</div>
+    <div class="stat-label">Year Founded</div>
+  </div>
+  <div>
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Focus on Innovation</div>
+  </div>
+  <div>
+    <div class="stat-num">EU</div>
+    <div class="stat-label">Patent Coverage in EU &amp; Worldwide</div>
+  </div>
+  <div>
+    <div class="stat-num">R&amp;D</div>
+    <div class="stat-label">Full In-House Development Cycle</div>
+  </div>
+</div>
+
+<!-- ACTIVITIES -->
+<section class="services" id="services">
+  <div class="services-header">
+    <div class="section-tag">Activities</div>
+    <h2 class="section-title">What We Do</h2>
+    <p class="section-sub">
+      From fundamental research to international patent filing — we develop and
+      protect our own inventions at every stage of the innovation cycle.
+    </p>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🔬</div>
+      <h3>Fundamental Research</h3>
+      <p>We explore core scientific questions to build the knowledge foundation that drives our own tomorrow's innovations.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚙️</div>
+      <h3>Applied Development</h3>
+      <p>We turn our research findings into working prototypes and fully realized technological solutions.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📋</div>
+      <h3>Filing Our Own Patents</h3>
+      <p>We file patent applications for our inventions at the national, European, and international level via PCT — protecting what we create.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌐</div>
+      <h3>International Patent Coverage</h3>
+      <p>We extend our patents into key global markets — USA, Europe, and Asia — to maximise protection of our IP portfolio.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🤝</div>
+      <h3>Technology Licensing</h3>
+      <p>We grant licences on our patented technologies to industry partners who wish to integrate our innovations into their products.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📈</div>
+      <h3>IP Portfolio Growth</h3>
+      <p>We systematically build a strong intellectual property portfolio that forms the primary pillar of our company's long-term value.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about">
+    <div class="about-visual">
+      <div class="about-visual-inner">
+        <div style="font-size:4rem; margin-bottom:1rem;">💡</div>
+        <h2>Our Research.<br>Our Patents.</h2>
+        <p>Protoporia S.A. is not a consultancy. We conduct our own research and secure our own inventions in the global marketplace.</p>
+      </div>
+    </div>
+    <div>
+      <div class="about-badge">🚀 New Company — Bold Vision</div>
+      <div class="section-tag">Who We Are</div>
+      <h2 class="section-title">Born to Invent</h2>
+      <p style="color: var(--muted); margin-bottom: .5rem;">
+        <strong>Protoporia S.A.</strong> was founded in 2026 by a team of scientists and
+        engineers with a clear mission: to produce original technological knowledge
+        and secure it as our own intellectual property.
+      </p>
+      <p style="color: var(--muted);">
+        We are not a patent services firm. We are a research company that invents,
+        develops, and patents — entirely on our own behalf.
+      </p>
+      <ul class="check-list">
+        <li>In-house laboratories and research infrastructure</li>
+        <li>Full cycle: from the lab bench to the granted patent</li>
+        <li>Strategic IP portfolio construction from day one</li>
+        <li>Commitment to ethical and responsible science</li>
+        <li>Technology licensing available to qualified industry partners</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="process-header">
+    <div class="section-tag">How We Work</div>
+    <h2 class="section-title">Our Process</h2>
+    <p class="section-sub">A structured, rigorous approach — four clear steps from idea to protected invention.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Idea &amp; Feasibility</h3>
+      <p>We evaluate the originality and patentability of our internal research concepts before committing to full development.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Research &amp; Development</h3>
+      <p>We develop, test, and document our inventions with full scientific rigour, building a strong technical record.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Patent Filing</h3>
+      <p>We draft and file the strongest possible patent application to achieve maximum legal coverage for our own invention.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h3>Exploitation &amp; Defence</h3>
+      <p>We monitor, defend, and commercially exploit our intellectual property to generate lasting value.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PATENTS HIGHLIGHT -->
+<section class="patents-highlight" id="patents">
+  <div class="section-tag" style="color: #a8d0ff;">Our Patent Strategy</div>
+  <h2 class="section-title">Building a World-Class<br>IP Portfolio</h2>
+  <p class="section-sub">
+    Every invention we create is protected by the strongest available legal instruments,
+    at national, European, and international level.
+  </p>
+  <a href="#contact" class="btn-primary">Partner With Us →</a>
+  <div class="patent-grid">
+    <div class="patent-card">
+      <h4>🇬🇷 National Patent</h4>
+      <p>Filed through OBI (Industrial Property Organisation) for protection in the Greek market.</p>
+    </div>
+    <div class="patent-card">
+      <h4>🇪🇺 European Patent</h4>
+      <p>Filed via the EPO covering up to 44 European countries through a single application.</p>
+    </div>
+    <div class="patent-card">
+      <h4>🌍 International (PCT)</h4>
+      <p>A single WIPO application that opens the door to protection in 150+ countries worldwide.</p>
+    </div>
+    <div class="patent-card">
+      <h4>🔒 Defence &amp; Enforcement</h4>
+      <p>Active monitoring for infringement and strategic management of our entire IP portfolio.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="cta" id="contact">
+  <div class="section-tag">Contact</div>
+  <h2 class="section-title">Interested in Licensing<br>Our Technology?</h2>
+  <p class="section-sub">
+    If you are an industry partner, investor, or researcher interested in our work,
+    we would love to hear from you.
+  </p>
+  <div class="cta-btns">
+    <a href="mailto:info@protoporia.gr" class="btn-dark">✉ Send Us an Email</a>
+    <a href="tel:+302101234567" class="btn-secondary">Call Us</a>
+  </div>
+  <p style="margin-top: 2rem; color: var(--muted); font-size: .9rem;">
+    Athens, Greece &nbsp;·&nbsp; Monday–Friday 09:00–18:00
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a class="nav-logo" href="#">PROTO<span style="color:#5ba4f5">PORIA</span></a>
+    <p>Research, Development &amp; Patents — Athens, Greece</p>
+  </div>
+  <p style="font-size: .85rem;">&copy; 2026 Protoporia S.A. — All rights reserved.</p>
+</footer>
+
+</body>
+</html>
