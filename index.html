@@ -283,6 +283,50 @@
     .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .5rem; }
     .step p  { color: var(--muted); font-size: .9rem; }
 
+    /* ── COMPANY COLLABORATION ── */
+    .collab {
+      background: #0a0d12;
+    }
+
+    .collab-header {
+      text-align: center;
+      margin-bottom: 2.8rem;
+    }
+
+    .collab-header .section-sub {
+      margin: 0 auto;
+      max-width: 760px;
+    }
+
+    .collab-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .collab-card {
+      background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,216,107,0.28);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 8px 26px rgba(0,0,0,0.22);
+    }
+
+    .collab-card h3 {
+      color: #f1f3f8;
+      font-size: 1.05rem;
+      margin-bottom: .45rem;
+    }
+
+    .collab-card p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    @media (max-width: 900px) {
+      .collab-grid { grid-template-columns: 1fr; }
+    }
+
     /* ── PATENTS HIGHLIGHT ── */
     .patents-highlight {
       background: linear-gradient(135deg, #090b0f 0%, #1d222c 52%, #9e7000 100%);
@@ -572,6 +616,32 @@
   </div>
 </section>
 
+<!-- COMPANY COLLABORATION -->
+<section class="collab" id="collaboration">
+  <div class="collab-header">
+    <div class="section-tag">Company Collaboration</div>
+    <h2 class="section-title">We Build with Companies</h2>
+    <p class="section-sub">
+      We work with companies to create and develop practical engineering solutions,
+      from early design concepts to production-ready parts and systems.
+    </p>
+  </div>
+  <div class="collab-grid">
+    <div class="collab-card">
+      <h3>CAD Design</h3>
+      <p>Professional CAD modeling and design optimization to turn ideas into manufacturable designs.</p>
+    </div>
+    <div class="collab-card">
+      <h3>3D Printing</h3>
+      <p>Rapid prototyping and functional test parts to accelerate product development cycles.</p>
+    </div>
+    <div class="collab-card">
+      <h3>CNC Machining</h3>
+      <p>Precision-machined components for durable prototypes and small-batch production runs.</p>
+    </div>
+  </div>
+</section>
+
 <!-- CTA / CONTACT -->
 <section class="cta" id="contact">
   <div class="section-tag">Contact</div>
@@ -581,34 +651,34 @@
     or help you improve your small-scale production, we would love to hear from you.
   </p>
   <div class="contact-meta">
-    <a class="contact-item" href="mailto:hello@phoenixl-enterprises.com">
+    <a class="contact-item" href="mailto:hliadaopoulos@phoenixlent.com">
       <span class="contact-icon" aria-hidden="true">✉</span>
       <span class="contact-copy">
         <span class="contact-label">Email</span>
-        <span class="contact-value">hello@phoenixl-enterprises.com</span>
+        <span class="contact-value">hliadaopoulos@phoenixlent.com</span>
       </span>
     </a>
-    <a class="contact-item" href="tel:+302101234567">
+    <a class="contact-item" href="tel:+302112151760">
       <span class="contact-icon" aria-hidden="true">☎</span>
       <span class="contact-copy">
         <span class="contact-label">Phone</span>
-        <span class="contact-value">+30 210 123 4567</span>
+        <span class="contact-value">+30 211 215 1760</span>
       </span>
     </a>
-    <a class="contact-item" href="https://www.linkedin.com/company/phoenix-l-enterprises" target="_blank" rel="noopener noreferrer">
-      <span class="contact-icon" aria-hidden="true">in</span>
-      <span class="contact-copy">
-        <span class="contact-label">LinkedIn</span>
-        <span class="contact-value">linkedin.com/company/phoenix-l-enterprises</span>
-      </span>
-    </a>
-    <div class="contact-item">
-      <span class="contact-icon" aria-hidden="true">⌖</span>
-      <span class="contact-copy">
-        <span class="contact-label">Location</span>
-        <span class="contact-value">Greater Loutraki area, Corinthia, Greece</span>
-      </span>
-    </div>
+<!--    <a class="contact-item" href="https://www.linkedin.com/company/phoenix-l-enterprises" target="_blank" rel="noopener noreferrer">-->
+<!--      <span class="contact-icon" aria-hidden="true">in</span>-->
+<!--      <span class="contact-copy">-->
+<!--        <span class="contact-label">LinkedIn</span>-->
+<!--        <span class="contact-value">linkedin.com/company/phoenix-l-enterprises</span>-->
+<!--      </span>-->
+<!--    </a>-->
+<!--    <div class="contact-item">-->
+<!--      <span class="contact-icon" aria-hidden="true">⌖</span>-->
+<!--      <span class="contact-copy">-->
+<!--        <span class="contact-label">Location</span>-->
+<!--        <span class="contact-value">Loutraki, Corinth, Greece</span>-->
+<!--      </span>-->
+<!--    </div>-->
   </div>
 </section>
 
@@ -616,7 +686,7 @@
 <footer>
   <div class="footer-brand">
     <a class="nav-logo" href="#">Phoenix <span style="color:#ffd070">L</span> Enterprises</a>
-    <p>Research, Development &amp; Patents - Loutraki, Greece</p>
+    <p>Research, Development &amp; IP Holding - Loutraki, Greece</p>
     <p style="font-size: .82rem; color: rgba(255,255,255,0.5); margin-top: .3rem;">EUID: ELGEMI.191517537000</p>
   </div>
   <p style="font-size: .85rem;">&copy; 2026 Phoenix L Enterprises P.C. - All rights reserved.</p>
