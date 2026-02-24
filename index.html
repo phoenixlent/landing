@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PROTOPORIA S.A. | Research, Development & Patents</title>
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-  <link rel="manifest" href="site.webmanifest">
+  <title>Phoenix L Enterprises P.C. | Research, Development & Patents</title>
+  <link rel="icon" href="/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blue:    #0d2f6e;
-      --accent:  #1a6ef5;
-      --light:   #e8f0fe;
-      --gray:    #f5f7fb;
-      --text:    #1c1c2e;
-      --muted:   #6b7280;
-      --white:   #ffffff;
+      --blue:    #111317;
+      --accent:  #f2b400;
+      --light:   #2b2210;
+      --gray:    #0d1016;
+      --text:    #eef1f5;
+      --muted:   #a5acb9;
+      --white:   #151922;
+      --silver:  #d8dbe1;
       --radius:  12px;
     }
 
@@ -27,7 +29,7 @@
     body {
       font-family: 'Segoe UI', system-ui, sans-serif;
       color: var(--text);
-      background: var(--white);
+      background: #000000;
       line-height: 1.6;
     }
 
@@ -35,21 +37,26 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 6%; height: 70px;
-      background: rgba(255,255,255,0.92);
+      padding: 0 6%; height: 112px;
+      background: rgba(0,0,0,0.9);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,0,0,0.07);
+      border-bottom: 1px solid rgba(242,180,0,0.22);
     }
 
     .nav-logo {
-      font-size: 1.3rem; font-weight: 800; letter-spacing: 1px;
-      color: var(--blue); text-decoration: none;
+      display: inline-flex; align-items: center;
+      text-decoration: none;
     }
-    .nav-logo span { color: var(--accent); }
+
+    .nav-logo img {
+      height: 104px;
+      width: auto;
+      display: block;
+    }
 
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
-      text-decoration: none; color: var(--text);
+      text-decoration: none; color: rgba(255,255,255,0.82);
       font-size: 0.95rem; font-weight: 500;
       transition: color .2s;
     }
@@ -67,8 +74,10 @@
     .hero {
       min-height: 100vh;
       display: flex; align-items: center; justify-content: center; text-align: center;
-      padding: 6rem 6% 4rem;
-      background: linear-gradient(135deg, #0d2f6e 0%, #1a6ef5 55%, #5ba4f5 100%);
+      padding: 9rem 6% 4rem;
+      background:
+        radial-gradient(circle at 78% 24%, rgba(242,180,0,0.22) 0%, rgba(242,180,0,0) 42%),
+        linear-gradient(135deg, #000000 0%, #050608 58%, #0f141d 100%);
       position: relative; overflow: hidden;
     }
 
@@ -96,7 +105,7 @@
       line-height: 1.15; margin-bottom: 1.4rem;
     }
 
-    .hero h1 em { font-style: normal; color: #a8d0ff; }
+    .hero h1 em { font-style: normal; color: #ffd86b; }
 
     .hero p {
       font-size: 1.2rem; color: rgba(255,255,255,0.85);
@@ -106,13 +115,13 @@
     .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
     .btn-primary {
-      background: #fff; color: var(--accent);
+      background: linear-gradient(135deg, #ffd86b, #f2b400); color: #1a1a1a;
       padding: .9rem 2.2rem; border-radius: 50px;
       font-weight: 700; font-size: 1rem;
       text-decoration: none; transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 26px rgba(0,0,0,0.34);
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 34px rgba(0,0,0,0.42); }
 
     .btn-outline {
       border: 2px solid rgba(255,255,255,0.6); color: #fff;
@@ -134,7 +143,7 @@
       font-size: 2.6rem; font-weight: 900; color: #fff;
       line-height: 1;
     }
-    .stat-label { color: rgba(255,255,255,0.65); font-size: .9rem; margin-top: .4rem; }
+    .stat-label { color: rgba(255,255,255,0.72); font-size: .9rem; margin-top: .4rem; }
 
     /* ── SECTION SHARED ── */
     section { padding: 5rem 6%; }
@@ -212,7 +221,7 @@
     }
 
     .about-visual {
-      background: linear-gradient(135deg, var(--blue), var(--accent));
+      background: linear-gradient(135deg, #0e1117, #2a2f39 58%, #9b6f00);
       border-radius: 20px;
       min-height: 380px;
       display: flex; align-items: center; justify-content: center;
@@ -280,13 +289,13 @@
 
     /* ── PATENTS HIGHLIGHT ── */
     .patents-highlight {
-      background: linear-gradient(135deg, var(--blue) 0%, #1a6ef5 100%);
+      background: linear-gradient(135deg, #090b0f 0%, #1d222c 52%, #9e7000 100%);
       color: #fff; text-align: center;
       padding: 5rem 6%;
     }
 
     .patents-highlight .section-title { color: #fff; margin-bottom: 1rem; }
-    .patents-highlight .section-sub   { color: rgba(255,255,255,.75); margin: 0 auto 2.5rem; }
+    .patents-highlight .section-sub   { color: rgba(255,255,255,.82); margin: 0 auto 2.5rem; }
 
     .patent-grid {
       display: grid;
@@ -295,8 +304,8 @@
     }
 
     .patent-card {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,216,107,0.3);
       border-radius: var(--radius);
       padding: 1.8rem;
       text-align: left;
@@ -307,7 +316,7 @@
 
     /* ── CTA ── */
     .cta {
-      text-align: center; background: var(--white);
+      text-align: center; background: #0d1016;
       padding: 5rem 6%;
     }
 
@@ -322,22 +331,22 @@
       font-weight: 700; font-size: 1rem;
       text-decoration: none;
       transition: background .2s, transform .2s;
-      box-shadow: 0 4px 20px rgba(13,47,110,.3);
+      box-shadow: 0 4px 22px rgba(26,28,33,0.28);
     }
     .btn-dark:hover { background: var(--accent); transform: translateY(-2px); }
 
     .btn-secondary {
-      border: 2px solid var(--blue); color: var(--blue);
+      border: 2px solid #8f98a8; color: #cfd6df;
       padding: .9rem 2.2rem; border-radius: 50px;
       font-weight: 600; font-size: 1rem;
       text-decoration: none;
       transition: background .2s;
     }
-    .btn-secondary:hover { background: var(--light); }
+    .btn-secondary:hover { background: #1a1f29; }
 
     /* ── FOOTER ── */
     footer {
-      background: #0a1e4a;
+      background: #090a0d;
       color: rgba(255,255,255,0.65);
       padding: 2.5rem 6%;
       display: flex;
@@ -356,7 +365,7 @@
     .footer-brand p { font-size: .85rem; }
 
     .footer-bottom {
-      background: #07142e;
+      background: #050608;
       text-align: center;
       padding: 1.2rem 6%;
       color: rgba(255,255,255,.4);
@@ -368,7 +377,9 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">PROTO<span>PORIA</span></a>
+  <a class="nav-logo" href="#" aria-label="Phoenix L Enterprises P.C. home">
+    <img src="/logo.png" alt="Phoenix L Enterprises P.C. logo">
+  </a>
   <ul class="nav-links">
     <li><a href="#services">Activities</a></li>
     <li><a href="#about">About</a></li>
@@ -465,7 +476,7 @@
       <div class="about-visual-inner">
         <div style="font-size:4rem; margin-bottom:1rem;">💡</div>
         <h2>Our Research.<br>Our Patents.</h2>
-        <p>Protoporia S.A. is not a consultancy. We conduct our own research and secure our own inventions in the global marketplace.</p>
+        <p>Phoenix L Enterprises P.C. is not a consultancy. We conduct our own research and secure our own inventions in the global marketplace.</p>
       </div>
     </div>
     <div>
@@ -473,7 +484,7 @@
       <div class="section-tag">Who We Are</div>
       <h2 class="section-title">Born to Invent</h2>
       <p style="color: var(--muted); margin-bottom: .5rem;">
-        <strong>Protoporia S.A.</strong> was founded in 2026 by a team of scientists and
+        <strong>Phoenix L Enterprises P.C.</strong> was founded in 2026 by a team of scientists and
         engineers with a clear mission: to produce original technological knowledge
         and secure it as our own intellectual property.
       </p>
@@ -525,7 +536,7 @@
 
 <!-- PATENTS HIGHLIGHT -->
 <section class="patents-highlight" id="patents">
-  <div class="section-tag" style="color: #a8d0ff;">Our Patent Strategy</div>
+  <div class="section-tag" style="color: #ffd070;">Our Patent Strategy</div>
   <h2 class="section-title">Building a World-Class<br>IP Portfolio</h2>
   <p class="section-sub">
     Every invention we create is protected by the strongest available legal instruments,
@@ -572,10 +583,10 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">
-    <a class="nav-logo" href="#">PROTO<span style="color:#5ba4f5">PORIA</span></a>
+    <a class="nav-logo" href="#">Phoenix <span style="color:#ffd070">L</span> Enterprises</a>
     <p>Research, Development &amp; Patents — Athens, Greece</p>
   </div>
-  <p style="font-size: .85rem;">&copy; 2026 Protoporia S.A. — All rights reserved.</p>
+  <p style="font-size: .85rem;">&copy; 2026 Phoenix L Enterprises P.C. — All rights reserved.</p>
 </footer>
 
 </body>
