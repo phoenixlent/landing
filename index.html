@@ -174,12 +174,8 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.8rem;
-    }
-
-    @media (max-width: 900px) {
-      .cards { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 560px) {
@@ -316,14 +312,81 @@
 
     /* ── CTA ── */
     .cta {
-      text-align: center; background: #0d1016;
+      text-align: center;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(242,180,0,0.14) 0%, rgba(242,180,0,0) 34%),
+        radial-gradient(circle at 82% 78%, rgba(216,219,225,0.08) 0%, rgba(216,219,225,0) 32%),
+        #0b0e13;
       padding: 5rem 6%;
     }
 
     .cta .section-title { max-width: 600px; margin: .5rem auto 1rem; }
-    .cta .section-sub   { margin: 0 auto 2.5rem; }
+    .cta .section-sub   { margin: 0 auto 3.4rem; }
 
     .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .contact-meta {
+      margin: 3.4rem auto 0;
+      max-width: 1120px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(230px, 1fr));
+      gap: 1.7rem;
+      text-align: left;
+    }
+
+    .contact-item {
+      background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,216,107,0.24);
+      border-radius: 14px;
+      padding: 1.35rem 1.45rem;
+      color: var(--silver);
+      text-decoration: none;
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: flex-start;
+      gap: .95rem;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,216,107,0.62);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.3);
+    }
+
+    .contact-label {
+      display: block;
+      font-size: .74rem;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: #ffd86b;
+      margin-bottom: .3rem;
+      font-weight: 700;
+    }
+
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(242,180,0,0.18);
+      border: 1px solid rgba(255,216,107,0.45);
+      color: #ffd86b;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .contact-copy { min-width: 0; }
+
+    .contact-value {
+      display: block;
+      color: #e8ebf2;
+      font-size: .95rem;
+      line-height: 1.35;
+      word-break: break-word;
+    }
 
     .btn-dark {
       background: var(--blue); color: #fff;
@@ -359,6 +422,7 @@
     @media (max-width: 640px) {
       footer { flex-direction: column; text-align: center; }
       .stats { grid-template-columns: 1fr 1fr; }
+      .contact-meta { grid-template-columns: 1fr; }
     }
 
     .footer-brand .nav-logo { color: #fff; display: block; margin-bottom: .3rem; font-size: 1.2rem; }
@@ -392,11 +456,12 @@
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-content">
-    <div class="hero-badge">✦ Founded 2026 &nbsp;·&nbsp; Athens, Greece</div>
-    <h1>We Research, We Invent,<br><em>We Patent</em></h1>
+    <div class="hero-badge">✦ Founded 2026 &nbsp;·&nbsp; Loutraki, Greece</div>
+    <h1>We Invent the <em>Future</em></h1>
     <p>
-      We conduct our own research, develop original technologies, and secure
-      our inventions with patents of global reach — entirely for our own portfolio.
+      From breakthrough research and development to prototype manufacturing,
+      we turn bold ideas into real technology and protect every innovation
+      through strategic IP ownership.
     </p>
     <div class="hero-btns">
       <a href="#services" class="btn-primary">Our Activities</a>
@@ -416,10 +481,6 @@
     <div class="stat-label">Focus on Innovation</div>
   </div>
   <div>
-    <div class="stat-num">EU</div>
-    <div class="stat-label">Patent Coverage in EU &amp; Worldwide</div>
-  </div>
-  <div>
     <div class="stat-num">R&amp;D</div>
     <div class="stat-label">Full In-House Development Cycle</div>
   </div>
@@ -430,10 +491,6 @@
   <div class="services-header">
     <div class="section-tag">Activities</div>
     <h2 class="section-title">What We Do</h2>
-    <p class="section-sub">
-      From fundamental research to international patent filing — we develop and
-      protect our own inventions at every stage of the innovation cycle.
-    </p>
   </div>
   <div class="cards">
     <div class="card">
@@ -445,16 +502,6 @@
       <div class="card-icon">⚙️</div>
       <h3>Applied Development</h3>
       <p>We turn our research findings into working prototypes and fully realized technological solutions.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">📋</div>
-      <h3>Filing Our Own Patents</h3>
-      <p>We file patent applications for our inventions at the national, European, and international level via PCT — protecting what we create.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🌐</div>
-      <h3>International Patent Coverage</h3>
-      <p>We extend our patents into key global markets — USA, Europe, and Asia — to maximise protection of our IP portfolio.</p>
     </div>
     <div class="card">
       <div class="card-icon">🤝</div>
@@ -476,7 +523,7 @@
       <div class="about-visual-inner">
         <div style="font-size:4rem; margin-bottom:1rem;">💡</div>
         <h2>Our Research.<br>Our Patents.</h2>
-        <p>Phoenix L Enterprises P.C. is not a consultancy. We conduct our own research and secure our own inventions in the global marketplace.</p>
+          <p>At Phoenix L Enterprises, we conduct our own research, develop prototypes, and advance towards scalable manufacturing.</p>
       </div>
     </div>
     <div>
@@ -484,9 +531,7 @@
       <div class="section-tag">Who We Are</div>
       <h2 class="section-title">Born to Invent</h2>
       <p style="color: var(--muted); margin-bottom: .5rem;">
-        <strong>Phoenix L Enterprises P.C.</strong> was founded in 2026 by a team of scientists and
-        engineers with a clear mission: to produce original technological knowledge
-        and secure it as our own intellectual property.
+        <strong>Phoenix L Enterprises</strong> was founded in 2026 with o goal to produce original technological knowledge.
       </p>
       <p style="color: var(--muted);">
         We are not a patent services firm. We are a research company that invents,
@@ -508,7 +553,7 @@
   <div class="process-header">
     <div class="section-tag">How We Work</div>
     <h2 class="section-title">Our Process</h2>
-    <p class="section-sub">A structured, rigorous approach — four clear steps from idea to protected invention.</p>
+    <p class="section-sub">A structured, rigorous approach — three clear steps from idea to protected invention.</p>
   </div>
   <div class="steps">
     <div class="step">
@@ -523,11 +568,6 @@
     </div>
     <div class="step">
       <div class="step-num">3</div>
-      <h3>Patent Filing</h3>
-      <p>We draft and file the strongest possible patent application to achieve maximum legal coverage for our own invention.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
       <h3>Exploitation &amp; Defence</h3>
       <p>We monitor, defend, and commercially exploit our intellectual property to generate lasting value.</p>
     </div>
@@ -571,20 +611,44 @@
     If you are an industry partner, investor, or researcher interested in our work,
     we would love to hear from you.
   </p>
-  <div class="cta-btns">
-    <a href="mailto:info@protoporia.gr" class="btn-dark">✉ Send Us an Email</a>
-    <a href="tel:+302101234567" class="btn-secondary">Call Us</a>
+  <div class="contact-meta">
+    <a class="contact-item" href="mailto:hello@phoenixl-enterprises.com">
+      <span class="contact-icon" aria-hidden="true">✉</span>
+      <span class="contact-copy">
+        <span class="contact-label">Email</span>
+        <span class="contact-value">hello@phoenixl-enterprises.com</span>
+      </span>
+    </a>
+    <a class="contact-item" href="tel:+302101234567">
+      <span class="contact-icon" aria-hidden="true">☎</span>
+      <span class="contact-copy">
+        <span class="contact-label">Phone</span>
+        <span class="contact-value">+30 210 123 4567</span>
+      </span>
+    </a>
+    <a class="contact-item" href="https://www.linkedin.com/company/phoenix-l-enterprises" target="_blank" rel="noopener noreferrer">
+      <span class="contact-icon" aria-hidden="true">in</span>
+      <span class="contact-copy">
+        <span class="contact-label">LinkedIn</span>
+        <span class="contact-value">linkedin.com/company/phoenix-l-enterprises</span>
+      </span>
+    </a>
+    <div class="contact-item">
+      <span class="contact-icon" aria-hidden="true">⌖</span>
+      <span class="contact-copy">
+        <span class="contact-label">Location</span>
+        <span class="contact-value">Greater Loutraki area, Corinthia, Greece</span>
+      </span>
+    </div>
   </div>
-  <p style="margin-top: 2rem; color: var(--muted); font-size: .9rem;">
-    Athens, Greece &nbsp;·&nbsp; Monday–Friday 09:00–18:00
-  </p>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">
     <a class="nav-logo" href="#">Phoenix <span style="color:#ffd070">L</span> Enterprises</a>
-    <p>Research, Development &amp; Patents — Athens, Greece</p>
+    <p>Research, Development &amp; Patents — Loutraki, Greece</p>
+    <p style="font-size: .82rem; color: rgba(255,255,255,0.5); margin-top: .3rem;">EUID: ELGEMI.191517537000</p>
   </div>
   <p style="font-size: .85rem;">&copy; 2026 Phoenix L Enterprises P.C. — All rights reserved.</p>
 </footer>
